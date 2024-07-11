@@ -1,0 +1,19 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          cognito:
+            client-id: your-client-id
+            client-secret: your-client-secret
+            scope: openid, profile, email
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            authorization-grant-type: authorization_code
+            client-name: Cognito
+            provider: cognito
+        provider:
+          cognito:
+            authorization-uri: https://your-cognito-domain.auth.region.amazoncognito.com/oauth2/authorize
+            token-uri: https://your-cognito-domain.auth.region.amazoncognito.com/oauth2/token
+            user-info-uri: https://your-cognito-domain.auth.region.amazoncognito.com/oauth2/userInfo
+            user-name-attribute: sub
