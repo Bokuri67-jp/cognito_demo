@@ -4,16 +4,17 @@ spring:
       client:
         registration:
           cognito:
-            client-id: your-client-id
-            client-secret: your-client-secret
-            scope: openid, profile, email
-            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            client-id: plspejrcgdp29h669nkj6p96m
+            scope: openid, email, phone
+            redirect-uri: "{baseUrl}/login/oauth2/code/cognito"
+            client-authentication-method: post
             authorization-grant-type: authorization_code
-            client-name: Cognito
             provider: cognito
         provider:
           cognito:
-            authorization-uri: https://your-cognito-domain.auth.region.amazoncognito.com/oauth2/authorize
-            token-uri: https://your-cognito-domain.auth.region.amazoncognito.com/oauth2/token
-            user-info-uri: https://your-cognito-domain.auth.region.amazoncognito.com/oauth2/userInfo
+            authorization-uri: https://web01.auth.us-east-1.amazoncognito.com/oauth2/authorize
+            token-uri: https://web01.auth.us-east-1.amazoncognito.com/oauth2/token
+            user-info-uri: https://web01.auth.us-east-1.amazoncognito.com/oauth2/userInfo
             user-name-attribute: sub
+            jwk-set-uri: https://cognito-idp.us-east-1.amazonaws.com/us-east-1_eyYU7A9vh/.well-known/jwks.json
+            issuer-uri: https://cognito-idp.us-east-1.amazonaws.com/us-east-1_eyYU7A9vh
